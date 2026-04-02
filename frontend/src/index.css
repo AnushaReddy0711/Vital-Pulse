@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #e51a1a #1e2333;
+  }
+  body {
+    @apply bg-dark-950 text-gray-100 font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-dark-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-blood-700 rounded-full; }
+}
+
+@layer components {
+  .card {
+    @apply bg-dark-800 border border-dark-700 rounded-2xl p-6 shadow-xl;
+  }
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-blood-600 hover:shadow-blood-900/30 hover:shadow-2xl hover:-translate-y-1;
+  }
+  .btn-primary {
+    @apply bg-blood-600 hover:bg-blood-700 text-white font-semibold py-2.5 px-5 rounded-xl
+           transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-blood-500 focus:ring-offset-2 focus:ring-offset-dark-900;
+  }
+  .btn-secondary {
+    @apply bg-dark-700 hover:bg-dark-600 text-gray-200 font-semibold py-2.5 px-5 rounded-xl
+           border border-dark-600 hover:border-dark-500
+           transition-all duration-200 active:scale-95
+           focus:outline-none focus:ring-2 focus:ring-dark-500 focus:ring-offset-2 focus:ring-offset-dark-900;
+  }
+  .btn-success {
+    @apply bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-5 rounded-xl
+           transition-all duration-200 active:scale-95;
+  }
+  .btn-danger {
+    @apply bg-red-700 hover:bg-red-800 text-white font-semibold py-2.5 px-5 rounded-xl
+           transition-all duration-200 active:scale-95;
+  }
+  .btn-sm {
+    @apply py-1.5 px-3 text-sm;
+  }
+  .input {
+    @apply w-full bg-dark-900 border border-dark-600 rounded-xl px-4 py-3 text-gray-100
+           placeholder-gray-500 focus:outline-none focus:border-blood-500 focus:ring-1 focus:ring-blood-500
+           transition-colors duration-200;
+  }
+  .label {
+    @apply block text-sm font-medium text-gray-300 mb-1.5;
+  }
+  .section-title {
+    @apply text-2xl font-bold text-white mb-1;
+  }
+  .section-subtitle {
+    @apply text-gray-400 mb-6;
+  }
+  .stat-card {
+    @apply card flex items-center gap-4;
+  }
+  .blood-drop {
+    @apply w-10 h-10 rounded-full bg-blood-600 flex items-center justify-center text-white font-bold text-sm;
+  }
+  .badge-pending  { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-900/50 text-yellow-300 border border-yellow-700; }
+  .badge-approved { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/50 text-blue-300 border border-blue-700; }
+  .badge-completed{ @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-900/50 text-emerald-300 border border-emerald-700; }
+  .badge-rejected { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-900/50 text-red-300 border border-red-700; }
+  .badge-emergency{ @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blood-900/70 text-blood-200 border border-blood-700 animate-pulse; }
+  .table-container {
+    @apply overflow-x-auto rounded-xl border border-dark-700;
+  }
+  table { @apply w-full border-collapse; }
+  thead tr { @apply bg-dark-700; }
+  thead th { @apply px-4 py-3 text-left text-xs font-semibold text-gray-400 uppercase tracking-wider; }
+  tbody tr { @apply border-t border-dark-700 hover:bg-dark-700/50 transition-colors duration-150; }
+  tbody td { @apply px-4 py-3 text-sm text-gray-300; }
+  .page-container { @apply min-h-screen bg-dark-950 animate-fade-in; }
+  .content-area { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8; }
+  .glass {
+    @apply bg-dark-800/60 backdrop-blur-xl border border-dark-700/50;
+  }
+}
